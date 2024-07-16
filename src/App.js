@@ -11,7 +11,7 @@ function App() {
   return(
     <div>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/myReactProjects" element={<Home />} />
         <Route path="/Accordian" element={<Index />} />
         <Route path="/RandomColor" element={<RandomColor />} />
         <Route path="/StarRating" element={<StarRating noOfStars={10} />} />

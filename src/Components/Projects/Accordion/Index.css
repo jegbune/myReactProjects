@@ -1,0 +1,45 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.m-box {
+  font-weight: 600;
+  color: white;
+  background: #614101;
+  padding: 0.5rem 1rem;
+  border: none;
+  margin-bottom: 0.5rem;
+}
+.wrapped {
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.list-contain {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+.listItem {
+  margin-bottom: 0.5rem;
+  background: #614101;
+  color: white;
+
+}
+
+.answer {
+  font-size: 0.8rem;
+  padding: 1rem;
+}

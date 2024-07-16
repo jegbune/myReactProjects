@@ -1,0 +1,52 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Box {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.boxe {
+  color: #fff;
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  background: #614101;
+  padding: 0.5rem;
+  
+}
+
+.box1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.box {
+  margin-bottom: 0.5rem;
+  width: 100%;
+  background: #614101;
+  color: #fff;
+  font-weight: 600;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+  
+}
+
+p {
+  text-align: center;
+  font-size: 0.8rem;
+}

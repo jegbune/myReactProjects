@@ -1,0 +1,56 @@
+.image-container {
+  position: relative;
+  display: flex;
+  width: 500px;
+}
+
+img {
+  width: 100%;
+}
+
+
+.left, .right {
+  padding: 5px;
+  border-radius: 50%;
+  border: none;
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+}
+
+.left {
+  position: absolute;
+  border-radius: 50%; 
+  width: 2rem;
+  height: 2rem;
+  top: 50%;
+  left: 1rem;
+}
+
+.right {
+  border-radius: 50%; 
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+}
+
+.arr {
+  position: absolute;
+  bottom: 5px;
+  right: 50%;
+  left: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  padding: 5px;
+  border-radius: 50%;
+  border: none;
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+  margin: 0 0.1rem;
+}

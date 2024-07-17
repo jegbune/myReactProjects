@@ -42,26 +42,36 @@ function RandomColor() {
       alignItems: 'center',
       flexDirection: 'column'
     }}>
-      <div>
-      <button onClick={() => setTypeOfColor('hex')}>Create HEX Color</button>
-      <button onClick={() => setTypeOfColor('rgb')}>Create RGB Color</button>
-      <button onClick={typeOfColor === 'hex' ? handleCreateRandomHexColor : handleCreateRandomRgbColor}>Generate Random Color</button>
-      </div>
       <div style={{
         display:'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        fontSize: '3rem',
+        fontSize: '2.5rem',
         wordBreak: 'break-word',
         textAlign: 'center',
         color: '#fff',
-        marginTop: '50px',
+        height: '100vh',
         flexDirection: 'column'
       }}>
-        <h3>{typeOfColor ==='hex' ? 'HEX Color' : 'RGB Color'}</h3>
-        <h1>{color}</h1>
+        <h3 style={{padding:'0', margin: '0'}}>{typeOfColor ==='hex' ? 'HEX Color' : 'RGB Color'}</h3>
+        <h1 style={{padding:'0', margin: '0'}}>{color}</h1>
 
       </div>
+        <div style={{
+          display: 'flex',
+          flexDirection:'column',
+          padding: '4rem 2rem'
+        }}>
+        <button onClick={() => setTypeOfColor('hex')} style={{
+          padding: '0.8rem',margin: '1rem 0.2rem'
+        }}>Create HEX Color</button>
+        <button onClick={() => setTypeOfColor('rgb')} style={{
+          padding: '0.8rem',margin: '1rem 0.2rem'
+        }}>Create RGB Color</button>
+        <button onClick={typeOfColor === 'hex' ? handleCreateRandomHexColor : handleCreateRandomRgbColor} style={{
+          padding: '0.8rem',margin: '1rem 0.2rem'
+        }}>Generate Random Color</button>
+        </div>
     </div>
   )
 }

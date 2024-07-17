@@ -1,94 +1,109 @@
-import React, { useEffect, useReducer, useState } from 'react'
+import React, { useEffect, useReducer, useRef, useState } from 'react'
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import './ImageSlider.css'
+import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from 'react-icons/bs';
 
 function ImageSlider({ url, limit, page }) {
   const [images, setImages] = useState([]);
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [preloadedImages, setPreloadedImages] = useState([])
   const [errorMsg, setErrorMsg] = useState(null);
   const [loading, setLoading] = useState(false)
-
+  const intervalRef = useRef(null)
   const initialState = 0
-  
-  const [state, dispatch] = useReducer((state, action) => {
+
+  const reducer = (state, action) => {
 
     switch (action.type) {
-      case 'increment': return  (state + action.value) % images.length;
-      case 'decrement': return (state - action.value + images.length) % images.length;
-      case 'reset': return initialState;
-      default: return state;
+      case 'increment':
+        return (state + action.value) % preloadedImages.length;
+      case 'decrement':
+        return (state - action.value + preloadedImages.length) % preloadedImages.length;
+      case 'set':
+        return action.value;
+      case 'reset':
+        return initialState;
+      default:
+        return state;
     }
 
-  }, initialState)
-
-  // useEffect(() => {
-  //   if (count === 0) {
-  //     dispatch({ type: 'reset' })
-  //   }
-  // }, [count])
-
-
-
-useEffect(()=> {
-  const fetchImages = async () => {
-    setLoading(true)
-    try {
-
-      const response = await fetch(`${url}?page=${page}&limit=${limit}`);
-      const data = await response.json();
-
-      if (data) {
-        setImages(data)
-        setLoading(false)
-      }
-
-    } catch (e) {
-      setErrorMsg(e.message)
-      setLoading(false)
-    }
   }
-  if (url !== '') fetchImages()
-},[url,page,limit])
 
-
+  const [state, dispatch] = useReducer(reducer, initialState)
 
   useEffect(() => {
-  }, [url,page,limit])
+    intervalRef.current = setInterval(() => {
+        dispatch({type: 'increment', value: 1})
+      }, 5000);
+    
+    return ()=> clearInterval(intervalRef.current)
+  }, [])
+
+  useEffect(() => {
+    const fetchImages = async () => {
+      setLoading(true)
+      try {
+        const response = await fetch(`${url}?page=${page}&limit=${limit}`);
+        const data = await response.json();
+
+        if (data) {
+          setImages(data)
+          preloadImages(data)
+          setLoading(false)
+        }
+
+      } catch (e) {
+        setErrorMsg(e.message)
+        setLoading(false)
+      }
+    };
+
+    if (url !== '') fetchImages()
+  }, [url, page, limit])
+
+const preloadImages = (ImageData) => {
+  const preloaded = ImageData.map((img)=> {
+    const image =new Image();
+    image.src = img.download_url;
+    return image;
+  });
+  setPreloadedImages(preloaded)
+}
 
   if (loading) {
     return <div>Loading data! Please wait</div>
   }
 
   if (errorMsg) {
-    return <div>Error occured</div>
+    return <div>Error occured: {errorMsg}</div>
   }
 
-  if(images.length === 0) {
+  if (images.length === 0) {
     return <div>No images available</div>
   }
 
 
 
   return (
-    <div>
-      <div key={images[state].id} className='image-container'>
-        <img src={images[state].download_url} alt={images[state].author} />
-        <button className='left' onClick={() => { dispatch({ type: 'decrement', value:'1' }) }}><FaArrowLeft /></button>
-        <button className='right' onClick={() => { dispatch({ type: 'increment', value: '1' }) }}><FaArrowRight /></button>
-        
-        
+    <div className='image-slider-container'>
+      <div className='image-container' style={{transform:`translateX(-${state*100}%)`}}>
+        {images.map((image,index) => (
+          <img key={index} src={image.download_url} alt={image.author} />
+        ))}</div>
+        <BsArrowLeftCircleFill className='left' onClick={() => dispatch({type: 'decrement', value: 1 })} />
+        <BsArrowRightCircleFill className='right' onClick={() => dispatch({type: 'increment', value: 1})} />
+
+
         <div className='arr'>
           {
-            [...Array(images.length)].map((_, index) => {
+            images.map((_, index) => {
               return (
-                  <button className='btn'onClick={()=> dispatch({type: 'increment', value: `${index}`})} ></button>
+                <button key={index} className={`btn ${index === state ? 'active' : ''}`} onClick={() => dispatch({ type: 'set', value: index })} ></button>
               )
-            })    
+            })
           }
-        
+
         </div>
       </div>
-    </div>
   )
 }
 

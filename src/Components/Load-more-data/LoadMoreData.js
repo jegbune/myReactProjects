@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './Style.css'
+import Back from '../Back'
 
 function LoadMoreData({ limit = 20, skip = 20 }) {
   const [loading, setLoading] = useState(false)
@@ -56,7 +57,7 @@ function LoadMoreData({ limit = 20, skip = 20 }) {
       </div>
       <div className='button-container'>
         <button disabled={disableButton} onClick={() => setCount(prev => prev + 1)}>Load More product</button>
-
+        <Back />
       </div>
     </div>
   )

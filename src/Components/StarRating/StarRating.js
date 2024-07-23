@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { FaStar } from 'react-icons/fa'
 import './style.css'
+import Back from '../Back'
 
 function StarRating({noOfStars = 5}) {
   const [rating, setRating] = useState(null)
@@ -22,9 +23,11 @@ function StarRating({noOfStars = 5}) {
   }
 
   return (
+    <div>
     <div style={{
       display: 'flex',
-      justifyContent: 'center'
+      justifyContent: 'center',
+      padding: '1rem',
     }}>
       {
         stars.map((_,index) => {
@@ -41,7 +44,8 @@ function StarRating({noOfStars = 5}) {
 
         
       })}
-      
+    </div>
+      <Back />
     </div>
   )
 }

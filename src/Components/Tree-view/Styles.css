@@ -16,4 +16,11 @@
   list-style-type: none;
   margin-top: 0px;
   margin-bottom: 0px;
+  padding-inline-start: 10px;
+}
+
+@media screen and ( max-width: 600px ) {
+  .tree-view-container {
+     width: 50%;
+  }
 }

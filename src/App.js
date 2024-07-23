@@ -13,6 +13,7 @@ import menus from "./Components/Tree-view/data";
 import QRCodeGenerator from "./Components/QR-code-generator";
 import LightDarkMode from "./Components/Light-Dark-Mode/Index";
 import ScrollIndicator from "./Components/Scroll-Indicator/Index";
+import Back from "./Components/Back";
 
 function App() {
   return(
@@ -20,17 +21,18 @@ function App() {
       <Routes>
         <Route path="/myReactProjects" element={<Home />} />
         <Route path="/Accordian" element={<Index />} />
+        <Route path="/ImageSlider" element={<ImageSlider url={'https://picsum.photos/v2/list/'} limit={10} page={1} />} />
         <Route path="/RandomColor" element={<RandomColor />} />
         <Route path="/StarRating" element={<StarRating noOfStars={10} />} />
-        <Route path="/ImageSlider" element={<ImageSlider url={'https://picsum.photos/v2/list/'} limit={10} page={1} />} />
         <Route path="/LoadMoreData" element={<LoadMoreData />} />
         <Route path="/treeView" element={<TreeView menus={menus} />} />
         <Route path="/QRCode" element={<QRCodeGenerator />} />
         <Route path="/LightDarkmode" element={<LightDarkMode />} />
         <Route path="/ScrollIndicator" element={<ScrollIndicator url='https://dummyjson.com/products?limit=100' />} />
         
-      </Routes>
-      {/* Accordian Component */}
+      </Routes> 
+      {/* <Back /> */}
+      {/* Accordian Component
       {/* <Index /> */}
       {/* <Accordion /> */}
 

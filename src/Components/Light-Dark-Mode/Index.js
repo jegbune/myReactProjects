@@ -1,6 +1,7 @@
 import React from 'react'
 import useLocalStorage from './useLocalStorage'
 import './theme.css'
+import Back from '../Back'
 
 function LightDarkMode() {
 
@@ -14,9 +15,10 @@ function LightDarkMode() {
 
   return (
     <div className='light-dark-mode' data-theme={theme}> 
-      <div className='container'>
-        <p> Hello World !</p>
+      <div className='theme-container'>
+        <h1> Hello World !</h1>
         <button onClick={handleToggleTheme }>Change Theme</button>
+        <Back />
       </div>
     </div>
   )

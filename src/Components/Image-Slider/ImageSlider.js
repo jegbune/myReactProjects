@@ -2,6 +2,7 @@ import React, { useEffect, useReducer, useRef, useState } from 'react'
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import './ImageSlider.css'
 import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from 'react-icons/bs';
+import Back from '../Back';
 
 function ImageSlider({ url, limit, page }) {
   const [images, setImages] = useState([]);
@@ -84,6 +85,7 @@ const preloadImages = (ImageData) => {
 
 
   return (
+    <div>
     <div className='image-slider-container'>
       <div className='image-container' style={{transform:`translateX(-${state*100}%)`}}>
         {images.map((image,index) => (
@@ -104,6 +106,8 @@ const preloadImages = (ImageData) => {
 
         </div>
       </div>
+        <Back />
+    </div>
   )
 }
 

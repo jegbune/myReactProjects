@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { datas } from './data'
 import './Index.css'
+import Back from '../Back'
 
 function Index() {
   const [selectedItem, setSelectedItem] = useState([])
@@ -39,14 +40,11 @@ function Index() {
                 </div>
                 {multiSelection && selectedItem.includes(index) && <div className='answer'>{data.answer}</div>}
                 {!multiSelection && select === index ? <div className='answer'>{data.answer}</div> : null}
-
-
               </div>
-
             )
           })}
         </div>
-
+        <Back />
       </div>
     </div>
   )

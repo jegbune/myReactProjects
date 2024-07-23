@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import Back from '../Back'
 
 function RandomColor() {
   const [typeOfColor, setTypeOfColor] = useState('hex')
@@ -71,6 +72,7 @@ function RandomColor() {
         <button onClick={typeOfColor === 'hex' ? handleCreateRandomHexColor : handleCreateRandomRgbColor} style={{
           padding: '0.8rem',margin: '1rem 0.2rem'
         }}>Generate Random Color</button>
+        <Back />
         </div>
     </div>
   )

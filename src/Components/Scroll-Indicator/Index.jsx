@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './scroll.css'
+import Back from '../Back';
 
 function ScrollIndicator({ url }) {
   const [data, setData] = useState([]);
@@ -76,6 +77,7 @@ function ScrollIndicator({ url }) {
             <p key={dataItem.id}>{dataItem.title}</p>
           ) : null}
       </div>
+          <Back />
     </div>
   )
 }

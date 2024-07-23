@@ -14,6 +14,7 @@
 
 .light-dark-mode {
   background:  var(--background);
+  color: var(--text-primary);
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -21,3 +22,14 @@
   font-size: 20px;
   transition: all 0.5s;
 } 
+
+.theme-container {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.theme-container button {
+  width: 10rem;
+  padding: 0.5rem;
+}

@@ -7,7 +7,8 @@
   width: 100vw;
   color: #fff;
   height: 100vh;
-  background: #555;
+  background: #0D1B5B;
+  overflow-y: auto;
 }
 
 a {
@@ -16,10 +17,16 @@ a {
   padding: 1rem;
 }
 
+.list-container {
+  width: 80%;
+  margin: auto;
+}
+
 .project-li {
   display: block;
   border: 1px solid #fff;
-  /* width: 100%; */
+  border-radius: 1rem;
+  margin: 1rem 0;
 }
 
 a:hover {

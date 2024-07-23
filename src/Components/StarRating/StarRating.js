@@ -8,7 +8,6 @@ function StarRating({noOfStars = 5}) {
 
   const stars = [...Array(noOfStars)]
 
-  const ClickArray = []
 
   const handleClick = (index) => {
     setRating(index)
@@ -32,7 +31,7 @@ function StarRating({noOfStars = 5}) {
           return  (
           <FaStar 
               key={index}
-              className={index <= (hover||rating) ? 'active' : 'inactive'}
+              className={index <= (hover||rating) ? 'activeh' : 'inactiveh'}
               onClick= {() => handleClick(index)} 
               onMouseMove={()=> handleMouseEnter(index)}
               onMouseLeave={() => handleMouseLeave()}

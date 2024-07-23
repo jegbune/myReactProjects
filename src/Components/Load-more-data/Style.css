@@ -1,0 +1,25 @@
+.p {
+  margin: 1rem;
+  flex-direction: column;
+  gap:20px;
+  width: auto !important ;
+  height: auto !important;
+}
+
+.product-container{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr) ;
+  gap: 10px;
+}
+
+.product {
+  padding: 1rem;
+  border: 1px solid ;
+}
+
+.product img {
+  display: block;
+  margin: auto ;
+  width: 15rem;
+  max-width: 100%;
+}

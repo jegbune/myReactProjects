@@ -24,11 +24,36 @@ function Home() {
     title: 'StarRating',
     url: 'StarRating',
   },
+    {
+    id: 5,
+    title: 'LoadMoreData',
+    url: 'LoadMoreData',
+  },
+    {
+    id: 5,
+    title: 'Tree View',
+    url: 'treeView',
+  },
+    {
+    id: 6,
+    title: 'QRCode',
+    url: 'QRCode',
+  },
+    {
+    id: 7,
+    title: 'LightDarkMode',
+    url: 'LightDarkMode',
+  },
+    {
+    id: 8,
+    title: 'ScrollIndicator',
+    url: 'ScrollIndicator',
+  },
   ]
   return (
     <div className='home-container'>
       <h1>My Projects</h1>
-      <div>
+      <div className='list-container'>
         {
           projects.map((project)=> {
             return(
